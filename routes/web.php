@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\{AuthController, CommonController, CustomerController, ItemController, NewsController, PriorityController, PushController, UserController};
-use Illuminate\Support\Facades\{App, Route};
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\{App, Route};
 |
 */
 
-Route::get('/', function () {
-    return view('test');
-});
+Route::get('/auth/login', [AuthController::class, 'index'])->name('login');
+
+Route::post('/auth/login', [AuthController::class, 'handleLogin'])->name('handleLogin');

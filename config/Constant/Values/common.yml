@@ -15,6 +15,12 @@ disable_flg:
   0: 有効|VALID
   1: 無効|INVALID
 
+positions:
+  0: Director
+  1: Group Leader
+  2: Leader
+  3: Member
+
 # S3 upload directories
 s3_upload_dir:
   pdf_news: "pdf-news/"

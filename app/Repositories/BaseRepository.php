@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Libs\ValueUtil;
-use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\{DB, Log};
 
@@ -137,44 +136,6 @@ abstract class BaseRepository
         $flg = $valid ? 'VALID' : 'INVALID';
 
         return ValueUtil::constToValue('common.del_flg.' . $flg);
-    }
-
-    /**
-     * Check updated_at equal to system date
-     *
-     * @param bool $isFindAllDisable
-     * @param bool $isFindAll
-     * @return object|null
-     */
-    public function checkUpdatedInRecordEqualToSystemDate($isFindAllDisable = false, $isFindAll = false) {
-        $query = $this->model->whereDate('updated_at', Carbon::now());
-        if (! $isFindAllDisable) {
-            $query->where('disable_flg', ValueUtil::constToValue('common.disable_flg.VALID'));
-        }
-        if (! $isFindAll) {
-            $query->where('del_flg', ValueUtil::constToValue('common.del_flg.VALID'));
-        }
-
-        return $query->first();
-    }
-
-    /**
-     * Check updated_at less than system date
-     *
-     * @param bool $isFindAllDisable
-     * @param bool $isFindAll
-     * @return object|null
-     */
-    public function getListHasUpdatedLessThanSystemDate($isFindAllDisable = false, $isFindAll = false) {
-        $query = $this->model->whereDate('updated_at', '<', Carbon::now());
-        if (! $isFindAllDisable) {
-            $query->where('disable_flg', ValueUtil::constToValue('common.disable_flg.VALID'));
-        }
-        if (! $isFindAll) {
-            $query->where('del_flg', ValueUtil::constToValue('common.del_flg.VALID'));
-        }
-
-        return $query->get();
     }
 
     /**

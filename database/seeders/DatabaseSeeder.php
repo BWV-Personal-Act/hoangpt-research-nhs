@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\{Group, User};
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,5 +13,7 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run() {
+        User::factory(1)->create();
+        Group::factory(1)->create();
     }
 }

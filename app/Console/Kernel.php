@@ -18,7 +18,6 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\BAT010Command::class,
     ];
 
     /**
