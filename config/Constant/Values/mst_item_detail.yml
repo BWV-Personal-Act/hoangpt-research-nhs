@@ -1,0 +1,51 @@
+raw_flg:
+  0: 対象外|NOT_APPLY
+  1: 生食|RAW_FOOD
+
+raw_flg_img:
+  1: raw_flg
+
+domestic_flg:
+  0: 対象外|NOT_APPLY
+  1: 国産|DOMESTIC
+
+domestic_flg_img:
+  1: domestic_flg
+
+original_brand_type:
+  0: 対象外|NOT_APPLY
+  1: IPPIN|IPPIN
+  2: Neo-Vege|NEO_VEGE
+  3: ONE STANDARD|ONE_STANDARD
+  4: ONE PREMIUM|ONE_PREMIUM
+  5: ドラフル|DRAFFLE
+  6: オリジナル|ORIGINAL
+  7: Umi-Labo|UMI_LABO
+  8: MEATNIK|MEATNIK
+  9: BASIC|BASIC
+  10: Alvo|ALVO
+  11: ONE PaTE|ONE_PATE
+
+original_brand_type_img:
+  6: original
+
+season_code_img:
+  1: season_spring
+  2: season_summer
+  3: season_autumn
+  4: season_winter
+  5: season_round
+
+season_code:
+  1: 春 
+  2: 夏 
+  3: 秋 
+  4: 冬 
+  5: 通年 
+
+season_code_not_apply: 
+  '00000': 対象外|NOT_APPLY
+
+cooking_heat_flg:
+  0: なし|NONE
+  1: あり|YES

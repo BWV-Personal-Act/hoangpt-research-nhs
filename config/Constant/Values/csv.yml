@@ -1,0 +1,25 @@
+csv_bat010:
+  fileName: order
+  header:
+    delivery_location_code: 
+      title: 配送拠点
+    order_number: 
+      title: 受注番号
+    order_date: 
+      title: 受注日
+      format_date: Ymd
+    delivery_date: 
+      title: 納品日
+      format_date: Ymd
+    customer_code: 
+      title: 顧客番号
+    order_detail_no: 
+      title: 明細順序
+    item_code: 
+      title: 商品番号
+    item_name: 
+      title: 商品名
+    quantity: 
+      title: 数量
+    unit_price_before_tax: 
+      title: 単価(税抜)

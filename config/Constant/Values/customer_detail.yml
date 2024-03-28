@@ -1,0 +1,5 @@
+member_status_a021:
+  0: 本会員|MAIN_MEMBER
+  1: 仮会員|TEMPORARY_MEMBER
+  2: 登録なし|NO_REGISTRATION
+  3: 退会済み|DELETED

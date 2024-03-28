@@ -1,0 +1,8 @@
+apps:
+  - name: nhs-ihs-queue-work
+    interpreter: php
+    script: /var/www/html/artisan
+    exec_mode: fork
+    instances: 1
+    args:
+      - queue:work

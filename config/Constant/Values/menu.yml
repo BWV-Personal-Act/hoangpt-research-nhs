@@ -1,0 +1,19 @@
+menu_highlight:
+  customer:
+    - a020
+    - a021
+  item:
+    - a030
+    - a031
+  news:
+    - a040
+    - a041
+  push:
+    - a050
+    - a051
+  user:
+    - a060
+    - a061
+  priority:
+    - a070
+    - a071

@@ -1,0 +1,429 @@
+body {
+  font-family: Meiryo, sans-serif;
+  color: black;
+}
+
+/* サイドバー用CSS */
+.simple-text {
+    text-align:center;
+    font-size:20px !important;
+}
+
+.sidebar{
+  font-weight:bold;
+}
+
+/* ログイン画面用CSS */
+.login-hr-top{
+  height: 4px;
+  background-color: #40a3ff;
+  border: none;
+  margin:0;
+}
+
+.login-title{
+  padding:30px 30px 80px 30px;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 1.8rem;
+  height: 20px;
+  white-space: nowrap;
+  margin:0;
+}
+
+.login-form {
+  padding: 0px 50px 0px 50px;
+}
+
+.login_form_btm {
+  width:1000px;
+  padding: 100px 0;
+  margin: auto;
+  text-align:center;
+  background-color: #eeefee;
+  font-weight:bold;
+}
+
+input {
+  width: 500px;
+  height:35px;
+  padding: 3px;
+  margin: 20px 0;
+}
+
+.btn--shadow {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.inquiry{
+  padding-top:15px;
+}
+
+.login-hr-bottom{
+  height: 4px;
+  background-color: #40a3ff;
+  border: none;
+  margin:50px 0px;
+}
+
+
+.card label {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+.form-control:disabled{
+  margin:0;
+  color:black;
+}
+
+.card-category{
+  color:#000000 !important;
+}
+
+
+.form-control{
+  margin-top:0;
+  margin-bottom: 0;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+.toggle.ios .toggle-handle { border-radius: 20px; }
+
+.stripe-table{
+  background-color: rgba(0,0,0,.05);
+}
+
+a.chosen-single {
+  height: 40px;
+}
+
+.chosen-container{
+  min-width: 100% !important;
+}
+
+
+/* 追加分 */
+.icon-big {
+  font-size: 2.5em;
+  min-height: 30px;
+  padding-left:5px;
+}
+
+.text-right{
+  text-align:right;
+}
+
+.none{
+  display: none;
+}
+
+input[type="radio"],input[type="checkbox"]{
+  position: relative;
+  top: 2px;
+}
+
+.red{
+  color:red;
+}
+
+.mt10{
+  margin-top:10px !important;
+}
+
+.mt20{
+  margin-top:20px !important;
+}
+
+.wk{
+  max-width: 450px !important;
+  margin:0 auto;
+  font-weight:normal !important;
+}
+
+@media (max-width: 2000px){
+  .ms{
+    width: 40% !important;
+  }
+  .w40{
+    width:40% !important;
+  }
+  .i031{
+    margin-top:35px !important;
+  }
+}
+
+@media (max-width: 1350px){
+  .ms{
+    width: 60% !important;
+  }
+  .w40{
+    width:40% !important;
+  }
+}
+
+@media (max-width: 768px){
+  .wk{
+    width: 80% !important;
+  }
+  .ms{
+    width: 90% !important;
+    font-size: 0.7em !important;
+  }
+  .w40{
+    width:90% !important;
+    font-size: 0.7em !important;
+  }
+  .ic-031{
+    margin-bottom:0px !important;
+  }
+  .i031{
+    margin-top:20px !important;
+  }
+}
+
+@media (max-width: 450px){
+  .wk{
+    width: 90% !important;
+  }
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #78c2ad;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #78c2ad;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+.toggle.ios .toggle-handle { border-radius: 20px; }
+
+.stripe-table{
+  background-color: rgba(0,0,0,.05);
+}
+
+.buttons{
+  width:20px !important;
+  height:20px !important;
+  padding:0;
+  margin:0;
+  position: absolute;
+  top: 17%;
+  transform: translateY(-50%);
+}
+
+.w-65{
+  width:65% !important;
+}
+.w100{
+  width:100% !important;
+}
+
+.recommendation::before{
+  content: "おすすめ商品";
+  color:white;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  background-color:#3CB371;
+  padding: 10px 10px;
+  border-width: 1px;
+  border-radius: 30px;
+  padding-right: 23px;
+  padding-left: 23px;
+}
+.unused::before{
+  content: "未使用";
+  color:white;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+  background-color:gray;
+  padding: 10px 10px;
+  border-width: 1px;
+  border-radius: 30px;
+  padding-right: 23px;
+  padding-left: 23px;
+  margin-left:10px;
+}
+
+.list-time{
+  width:90%;
+  height:43px;
+  border-radius:5px;
+  border:1px solid #DDDDDD;
+  margin:0px !important;
+  padding:0px !important;
+  color:rgba(0,0,0,.6);
+}
+
+.time-icon{
+  width:1px;
+  padding:0;
+  text-align:center;
+  padding-top:10px;
+  padding-right:30px;
+}
+
+.side-img{
+  width:200px;
+  height:100px;
+}
+
+.side-title{
+  text-align:center;
+  font-size: 17px !important;
+}
+
+/* textarea可変 */
+
+.textarea-new {
+  width: 100%;
+  max-height: 420px !important;
+  min-height: 82px !important;
+}
+
+.textarea-edit {
+  width: 100%;
+  max-height: 300px !important;
+  min-height: 82px !important;
+}
+
+/* textarea可変 */
+
+.side-selection{
+  opacity: 1 !important;
+}
+
+.title-side {
+  font-size: 12px !important;
+  margin-left: 5px !important;
+  color: #666666;
+}
+
+.always-scroll {
+  overflow-y: initial !important;
+}
+
+.arrow {
+  background-color: none;
+  border: none;
+  width: 40%;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px;
+}
+
+.dropdown-toggle::after {
+  font-size: 15px !important;
+}
+
+.dropdown-menu {
+  position: initial !important;
+  transform: initial !important;
+  width: 100%;
+  margin-top: 0px !important;
+  padding: 10px 0px;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+.dropdown-item {
+  position: initial !important;
+  margin: 0px !important;
+  padding-left: 35px !important;
+  font-weight: 700 !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  color: #292929 !important;
+  text-decoration: initial !important;
+  background-color: initial !important;
+  opacity: 1 !important;
+}
+
+.dropdown-menu .dropdown-item:focus {
+  color: #292929 !important;
+  text-decoration: initial !important;
+  background-color: initial !important;
+  opacity: 1 !important;
+}
+
+.dropdown-menu .dropdown-item:active {
+  color: #292929 !important;
+  text-decoration: initial !important;
+  background-color: initial !important;
+  opacity: 1 !important;
+}
+
+.title-dropdown-item {
+  font-size: 12px !important;
+  margin-top: 6px;
+}

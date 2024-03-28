@@ -1,0 +1,42 @@
+# AES-256 encrypt
+aes_256_key: kwNfBv0Dqr
+aes_256_iv: VeXuN6Gssgr55DG4NZzTSA==
+method_aes_256: aes-256-cbc
+method_hash: sha256
+
+# SHA-256 encrypt
+sha256_salt: nhs-ihs
+
+del_flg:
+  0: 有効|VALID
+  1: 無効|INVALID
+
+disable_flg:
+  0: 有効|VALID
+  1: 無効|INVALID
+
+# S3 upload directories
+s3_upload_dir:
+  pdf_news: "pdf-news/"
+  pdf_item_spec: "pdf-item-spec/"
+  csv_order_work: "order/work/"
+
+# max upload file size in Megabyte
+max_upload_file_size: 10
+
+# Pagination configs
+pagination_limit: 100
+
+batch_page_size: 10000
+
+# limit push devices at a time
+push_notification_device_limit: 100
+
+bat_mst:
+  bat_mst_customer: 顧客マスタ
+  bat_mst_holiday: 休日マスタ
+  bat_mst_item: 商品マスタ
+  bat_mst_item_office: 部門別商品マスタ
+  bat_mst_item_detail: 商品詳細マスタ
+  bat_mst_price: 店舗別商品単価マスタ
+  bat_mst_price_advance: 店舗別値上値下マスタ

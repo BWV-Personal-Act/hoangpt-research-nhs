@@ -1,0 +1,3 @@
+.i031 > div:first-child::before {
+    margin-left: 0;
+}

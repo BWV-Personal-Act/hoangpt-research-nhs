@@ -1,0 +1,29 @@
+disable_flg:
+  1: 使用中|INUSE
+  2: 未使用|UNUSED
+  
+temperature_zone:
+  '00': その他|OTHER
+  '01': 常温|NORMAL
+  '02': 冷蔵|COOL
+  '03': 冷凍|COLD
+  '04': 超低温|SUPERCOOL
+
+fixed_weight_type:
+  0: 定貫|CONSTANT
+  1: 不定貫|INDEFINITE
+
+special_price_type:
+  0: なし|NONE
+  1: 終売|SOLD_OUT
+  9: 通常|NORMAL
+
+temperature_zone_img:
+  '01': temperature_normal
+  '02': temperature_cool
+  '03': temperature_cold
+  '04': temperature_supercool
+
+new_item_flg:
+  0: 通常商品|REGULAR_ITEM
+  1: 新商品|NEW_ITEM

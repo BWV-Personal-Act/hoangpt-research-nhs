@@ -1,0 +1,11 @@
+.check label:nth-child(2) {
+    margin-left: 20px;
+}
+
+.check input {
+    margin: 0px;
+}
+
+.check label {
+    margin: 10px 0px 0px 0px;
+}

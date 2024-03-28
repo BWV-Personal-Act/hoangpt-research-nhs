@@ -1,0 +1,9 @@
+mode:
+  0: 上|UP
+  1: 下|DOWN
+
+ip_whitelist:
+  - 153.142.228.174 # Briswell Japan
+  - 118.69.72.236 # Briswell Vietnam
+  - 18.180.201.210 # Briswell Vietnam AWS VPN01
+  - 54.95.227.113 # Briswell Vietnam AWS VPN02
