@@ -1,7 +1,7 @@
 @php
     $componentName = 'forms.text';
     $props = [
-        'label', 
+        'label',
         'labelSide' => '',
         'type' => 'text',
         'name',
@@ -21,13 +21,13 @@
 
 <div class="form-group">
     @if (isset($label))
-        <x-forms.label 
-            :label="$label" 
-            :labelSide="$labelSide" 
-            :isRequired="$isRequired" 
+        <x-forms.label
+            :label="$label"
+            :labelSide="$labelSide"
+            :isRequired="$isRequired"
             class="{{ $attributes['classLabel'] }}" />
     @endif
-    <x-forms.text 
+    <x-forms.text
         :type="$type"
         :label="$label"
         :name="$name"

@@ -713,8 +713,7 @@ $.validator.addMethod( "greaterThanEqual", function( value, element, param ) {
             $( element ).valid();
         } );
     }
-
-    return value >= target.val();
+    return !moment(value).isBefore(target.val());
 }, "Please enter a greater value." );
 
 /**

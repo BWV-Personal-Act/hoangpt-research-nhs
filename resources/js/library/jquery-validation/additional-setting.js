@@ -69,6 +69,9 @@ $.extend(jQuery.validator, {
                 $(p).data('label'),
             ]);
         },
+        greaterThanEqual: function (p, e) {
+            return $.validator.format('解約予定日は契約終了日前を指定してください。');
+        },
         fileRequired: function (p, e) {
             return $.validator.format('{0}は必須項目です。', [
                 $(e).data('label'),
@@ -438,7 +441,7 @@ $.validator.addMethod('greaterThanDate', function (value, element, params) {
                     $(params).next().remove();
                 }
             }
-            return new Date(value) <= new Date($(params).val());
+            return !moment(value).isBefore(params.val());;
         }
 
         return (

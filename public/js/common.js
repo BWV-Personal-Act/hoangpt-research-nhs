@@ -194,32 +194,6 @@ $(function () {
 
 /***/ }),
 
-/***/ "./resources/css/screens/push/a051.css":
-/*!*********************************************!*\
-  !*** ./resources/css/screens/push/a051.css ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/screens/priority/a071.css":
-/*!*************************************************!*\
-  !*** ./resources/css/screens/priority/a071.css ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
 /***/ "./resources/css/common.css":
 /*!**********************************!*\
   !*** ./resources/css/common.css ***!
@@ -246,36 +220,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/screens/auth/a010.css":
-/*!*********************************************!*\
-  !*** ./resources/css/screens/auth/a010.css ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/screens/item/a031.css":
-/*!*********************************************!*\
-  !*** ./resources/css/screens/item/a031.css ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./resources/css/screens/push/a050-modal-add-push.css":
-/*!************************************************************!*\
-  !*** ./resources/css/screens/push/a050-modal-add-push.css ***!
-  \************************************************************/
+/***/ "./resources/css/screens/auth/login.css":
+/*!**********************************************!*\
+  !*** ./resources/css/screens/auth/login.css ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -372,13 +320,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/common": 0,
-/******/ 			"css/screens/push/a050-modal-add-push": 0,
-/******/ 			"css/screens/item/a031": 0,
-/******/ 			"css/screens/auth/a010": 0,
+/******/ 			"css/screens/auth/login": 0,
 /******/ 			"css/custom": 0,
-/******/ 			"css/common": 0,
-/******/ 			"css/screens/priority/a071": 0,
-/******/ 			"css/screens/push/a051": 0
+/******/ 			"css/common": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -428,14 +372,10 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/screens/push/a050-modal-add-push","css/screens/item/a031","css/screens/auth/a010","css/custom","css/common","css/screens/priority/a071","css/screens/push/a051"], () => (__webpack_require__("./resources/js/common.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/screens/push/a050-modal-add-push","css/screens/item/a031","css/screens/auth/a010","css/custom","css/common","css/screens/priority/a071","css/screens/push/a051"], () => (__webpack_require__("./resources/css/common.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/screens/push/a050-modal-add-push","css/screens/item/a031","css/screens/auth/a010","css/custom","css/common","css/screens/priority/a071","css/screens/push/a051"], () => (__webpack_require__("./resources/css/custom.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/screens/push/a050-modal-add-push","css/screens/item/a031","css/screens/auth/a010","css/custom","css/common","css/screens/priority/a071","css/screens/push/a051"], () => (__webpack_require__("./resources/css/screens/auth/a010.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/screens/push/a050-modal-add-push","css/screens/item/a031","css/screens/auth/a010","css/custom","css/common","css/screens/priority/a071","css/screens/push/a051"], () => (__webpack_require__("./resources/css/screens/item/a031.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/screens/push/a050-modal-add-push","css/screens/item/a031","css/screens/auth/a010","css/custom","css/common","css/screens/priority/a071","css/screens/push/a051"], () => (__webpack_require__("./resources/css/screens/push/a050-modal-add-push.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/screens/push/a050-modal-add-push","css/screens/item/a031","css/screens/auth/a010","css/custom","css/common","css/screens/priority/a071","css/screens/push/a051"], () => (__webpack_require__("./resources/css/screens/push/a051.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/screens/push/a050-modal-add-push","css/screens/item/a031","css/screens/auth/a010","css/custom","css/common","css/screens/priority/a071","css/screens/push/a051"], () => (__webpack_require__("./resources/css/screens/priority/a071.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/screens/auth/login","css/custom","css/common"], () => (__webpack_require__("./resources/js/common.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/screens/auth/login","css/custom","css/common"], () => (__webpack_require__("./resources/css/common.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/screens/auth/login","css/custom","css/common"], () => (__webpack_require__("./resources/css/custom.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/screens/auth/login","css/custom","css/common"], () => (__webpack_require__("./resources/css/screens/auth/login.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

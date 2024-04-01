@@ -31,7 +31,7 @@ s3_upload_dir:
 max_upload_file_size: 10
 
 # Pagination configs
-pagination_limit: 100
+pagination_limit: 10
 
 batch_page_size: 10000
 

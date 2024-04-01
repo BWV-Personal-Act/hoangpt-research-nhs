@@ -2,10 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use App\Libs\ConfigUtil;
+use App\Repositories\{AuthRepository, UserRepository};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    private AuthRepository $authRepository;
+
+    public function __construct(AuthRepository $authRepository) {
+        $this->authRepository = $authRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,62 +26,37 @@ class AuthController extends Controller
     }
 
     /**
-     * Handle the login
+     * Handle an login attempt.
+     * @param Request $request
      */
-    public function handleLogin() {
+    public function handleLogin(LoginRequest $request) {
+        $credentials = $request->only('email', 'password');
+
+        $user = $this->authRepository->getLoginUser($credentials);
+
+        if ($user) {
+            if (Auth::loginUsingId($user->id)) {
+                session()->regenerate();
+
+                return redirect()->route('user.search');
+            }
+        }
+
+        return redirect()->back()->withErrors(
+            ConfigUtil::getMessage('ECL016'),
+        );
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Handle logout
      */
-    public function create() {
-    }
+    public function handleLogout() {
+        if (Auth::check()) {
+            Auth::logout();
+            session()->invalidate();
+            session()->regenerateToken();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request) {
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id) {
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id) {
+            return redirect()->route('auth.login');
+        }
     }
 }

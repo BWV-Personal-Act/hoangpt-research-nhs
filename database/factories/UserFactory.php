@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Libs\EncryptUtil;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class UserFactory extends Factory
     public function definition() {
         return [
             'email' => 'group_leader@gmail.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => EncryptUtil::encryptSha256('test1234'),
             'name' => 'Group Leader',
             'group_id' => '1',
             'started_date' => now(),

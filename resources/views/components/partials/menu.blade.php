@@ -15,17 +15,22 @@ foreach ($menuHighlightConfig as $highlightName => $routes) {
         <a class="side-title logo-normal">
             <img src="{{ asset('img/logo.png') }}" alt="" class="side-img">
         </a>
-        <a class="simple-text logo-normal">
-            西原商会 社販サイト管理
-        </a>
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li>
-                <x-nav-link to="/" class="{{ $highlightCheck['customer'] }}">
-                    <i class="fa fa-address-book-o"></i>
-                    <p>顧客管理</p>
+                <x-nav-link to="{{ route('user.search') }}" class="{{ $highlightCheck['user'] }}">
+                    <i class="fa fa-users"></i>
+                    <p>User List</p>
                 </x-nav-link>
+            </li>
+            <li>
+                @if (auth()->user()->position_id == 0)
+                <x-nav-link to="/" class="{{ $highlightCheck['group'] }}">
+                    <i class="fa fa-address-book-o"></i>
+                    <p>Group List</p>
+                </x-nav-link>
+                @endif
             </li>
         </ul>
     </div>
