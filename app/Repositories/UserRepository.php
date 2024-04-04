@@ -62,4 +62,21 @@ class UserRepository extends BaseRepository
 
         return $query->first();
     }
+
+    /**
+     * Check exist user by email address
+     * @param mixed $email
+     * @param mixed|null $id
+     */
+    public function checkExistsEmail($email, $id = null) {
+        $query = User::query();
+
+        if (! empty($id)) {
+            $query->where('id', '!=', $id);
+        }
+
+        $query->where('email', $email);
+
+        return $query->first();
+    }
 }

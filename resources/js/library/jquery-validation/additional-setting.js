@@ -118,7 +118,13 @@ $.extend(jQuery.validator, {
             return $.validator.format(
                 '{0}〜{1}の範囲で入力してください。', [min, max]
             );
-        }
+        },
+        checkCharacterlatin: function (p, e) {
+            return $.validator.format('{0}は半角英数で入力してください。', [$(e).data('label')]);
+        },
+        equalTo: function () {
+            return $.validator.format('確認用のパスワードが間違っています。');
+        },
     },
 });
 

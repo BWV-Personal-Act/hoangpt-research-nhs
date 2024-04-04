@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Exports\UserExport;
+use App\Libs\{ConfigUtil, EncryptUtil, ValueUtil};
 use App\Repositories\{GroupRepository, UserRepository};
+use App\Requests\User\{CreateRequest, UpdateRequest};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use Throwable;
 
@@ -82,7 +85,27 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(CreateRequest $request) {
+        $fields = [
+            'name',
+            'email',
+            'group_id',
+            'started_date',
+            'position_id',
+            'password',
+        ];
+
+        $isExistEmail = $this->userRepository->checkExistsEmail($request->only('email'));
+
+        if ($isExistEmail) {
+            return back()->withInput()->withErrors(ConfigUtil::getMessage('EBT019'));
+        }
+
+        if (! $this->userRepository->create($request->only($fields))) {
+            return back()->withInput()->withErrors('create failed');
+        }
+
+        return redirect()->route('user.search')->with('success', ConfigUtil::getMessage('ECL016'));
     }
 
     /**
@@ -101,9 +124,21 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(string $id) {
-        $user = $this->userRepository->searchById($id);
+        $loginUser = auth()->user();
+        $directorPosition = ValueUtil::constToValue('common.positions.VALID');
 
-        return view('screens.user.addEditDelete', compact('user'));
+        if ($loginUser->position_id !== 0 && strval($loginUser->id) !== $id) {
+            Auth::logout();
+            session()->invalidate();
+            session()->regenerateToken();
+
+            return redirect()->route('auth.login');
+        }
+
+        $user = $this->userRepository->searchById($id);
+        $groupNameList = $this->groupRepository->searchGroupName();
+
+        return view('screens.user.addEditDelete', compact('user', 'groupNameList'));
     }
 
     /**
@@ -113,15 +148,59 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(UpdateRequest $request, string $id) {
+        $fields = [
+            'name',
+            'email',
+            'group_id',
+            'started_date',
+            'position_id',
+            'password',
+        ];
+
+        $params = $request->only($fields);
+
+        $isExistEmail = $this->userRepository->checkExistsEmail($request->only('email'), $id);
+
+        if ($isExistEmail) {
+            return back()->withInput()->withErrors(ConfigUtil::getMessage('EBT019'));
+        }
+
+        if (! empty($params['password'])) {
+            $params['password'] = EncryptUtil::encryptSha256($params['password']);
+        } else {
+            unset($params['password']);
+        }
+
+        if (! $this->userRepository->update($id, $params)) {
+            return back()->withInput()->withErrors('update failed');
+        }
+
+        return redirect()->route('user.search')->with('success', ConfigUtil::getMessage('ECL016'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy(Request $request) {
+        $loginUser = auth()->user();
+
+        $response = [
+            'status' => 200,
+            'message' => ConfigUtil::getMessage('ECL016'),
+        ];
+
+        if ($this->userRepository->deleteById($request->id, $loginUser->id)) {
+            return response()->json($response);
+        }
+
+        $response['status'] = 400;
+        $response['message'] = ConfigUtil::getMessage('EBT086');
+
+        return response()->json($response);
     }
 }

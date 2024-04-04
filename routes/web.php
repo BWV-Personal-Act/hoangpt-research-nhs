@@ -30,7 +30,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
         Route::put('/edit/{id}', [UserController::class, 'update'])->name('user.update');
 
-        Route::delete('/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+        Route::post('/delete', [UserController::class, 'destroy'])->name('user.destroy');
     });
 
     Route::prefix('common')->as('common.')->group(function () {

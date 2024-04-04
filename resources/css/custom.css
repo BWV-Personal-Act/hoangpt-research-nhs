@@ -164,7 +164,7 @@ div.file-single-wrapper .form-control[init-file-name] ~ span.init-file-name .fil
     font-family: 'password';
     src: url('/fonts/password.ttf');
 }
-  
+
 input.text-password {
     font-family: 'password';
 }
@@ -179,4 +179,17 @@ table.custom-data-table thead th {
 
 .bgc-body {
     background-color: #eeefee;
+}
+
+select {
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 5px;
+    height: 34px;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #ddd;
+    -webkit-appearance: none;
+    background-position-x: 244px;
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginRequest;
 use App\Libs\ConfigUtil;
-use App\Repositories\{AuthRepository, UserRepository};
+use App\Repositories\AuthRepository;
+use App\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

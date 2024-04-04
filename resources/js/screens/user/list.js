@@ -6,6 +6,16 @@ $(function () {
 $.fn.extend({
     userList: {
         register: function () {
+            const message = sessionStorage.getItem('deleteSuccess');
+
+            if (message) {
+                $('.content .row:first').before((`<div class="alert alert-success" role="alert">
+                入力した情報のいずれかの情報が間違っています。確認してから再度試してください。
+                </div>`));
+
+                sessionStorage.removeItem('deleteSuccess');
+            }
+
             if (window.location.search) {
                 $('#result').removeClass('d-none');
             }

@@ -58,10 +58,10 @@ class Modal extends Component
         $this->modalClass = $modalClass;
         $this->actions = $actions ?? ['cancel', 'submit'];
         $this->actionsLabel = $actionsLabel ?? [
-            'submit' => '登録',
-            'cancel' => 'キャンセル',
-            'delete' => '削除する',
-            'no' => 'いいえ',
+            'submit' => 'Submit',
+            'cancel' => 'Cancel',
+            'delete' => 'Delete',
+            'no' => 'No',
             // declare more action here
         ];
         $this->actionsType = $actionsType ?? [
