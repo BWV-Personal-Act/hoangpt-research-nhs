@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AuthController, CommonController, UserController};
+use App\Http\Controllers\{AuthController, CommonController, GroupController, UserController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +31,11 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/edit/{id}', [UserController::class, 'update'])->name('user.update');
 
         Route::post('/delete', [UserController::class, 'destroy'])->name('user.destroy');
+    });
+
+    Route::prefix('group')->group(function () {
+        Route::get('/list', [GroupController::class, 'index'])->name('group.list');
+        Route::post('/import-csv', [GroupController::class, 'handleImportCSV'])->name('group.importCSV');
     });
 
     Route::prefix('common')->as('common.')->group(function () {

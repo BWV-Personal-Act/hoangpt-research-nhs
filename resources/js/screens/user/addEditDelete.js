@@ -7,7 +7,9 @@ $(function() {
 $.fn.extend({
     addEditDelete: {
         register: function () {
-            const isAddScreen = window.location.pathname === '/user/create';
+            const USER_CREATE_PATH = '/user/create';
+
+            const isAddScreen = window.location.pathname === USER_CREATE_PATH;
             const passwordElement = $('input[name="password"]');
             const passwordConfirmationElement = $('input[name="password_confirmation"]');
 
@@ -62,10 +64,10 @@ $.fn.extend({
             });
         },
         handleDelete: function () {
-            const id = window.location.href.split("/").pop();
+            const userId = window.location.href.split("/").pop();
 
             $(document).on('click', 'button#btnDelete', function () {
-                if (id === LOGIN_USER_ID) {
+                if (userId === LOGIN_USER_ID) {
                     return alert(EBT086);
                 }
                 const isConfirm = confirm('このユーザーを削除してもいいですか？');
@@ -78,7 +80,7 @@ $.fn.extend({
                     url: DELETE_URL,
                     type: 'POST',
                     data: {
-                        id,
+                        id: userId,
                     },
                     beforeSend: function() {
                         _common.showLoading();

@@ -12,7 +12,7 @@ class UserRepository extends BaseRepository
     }
 
     /**
-     * Search for users
+     * Search users
      * @param mixed $params
      */
     public function search($params) {

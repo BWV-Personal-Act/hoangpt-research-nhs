@@ -4,4 +4,4 @@ menu_highlight:
     - user.create
     - user.edit
   group:
-    - user.edit
+    - group.list

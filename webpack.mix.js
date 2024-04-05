@@ -29,6 +29,10 @@ const fs = require('fs');
         in: 'resources/js/screens/user',
         out: 'js/screens/user',
     },
+    {
+        in: 'resources/js/screens/group',
+        out: 'js/screens/group',
+    },
 ];
 
 let cssDirs = [

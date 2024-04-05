@@ -16,10 +16,10 @@ disable_flg:
   1: 無効|INVALID
 
 positions:
-  0: Director
-  1: Group Leader
-  2: Leader
-  3: Member
+  0: Director|DIRECTOR
+  1: Group Leader|GROUP_LEADER
+  2: Leader|LEADER
+  3: Member|MEMBER
 
 # S3 upload directories
 s3_upload_dir:

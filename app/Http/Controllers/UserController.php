@@ -8,7 +8,8 @@ use App\Repositories\{GroupRepository, UserRepository};
 use App\Requests\User\{CreateRequest, UpdateRequest};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Excel;
+use Maatwebsite\Excel\Facades\Excel as FacadesExcel;
 use Throwable;
 
 class UserController extends Controller
@@ -52,7 +53,7 @@ class UserController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'group_id' => $user->group_id,
-                    'group_name' => $user->group_name ?? '', // Use null coalescing operator to handle null case
+                    'group_name' => $user->group_name ?? '',
                     'started_date' => $user->started_date,
                     'position' => $user->position_name,
                     'created_at' => $user->created_at,
@@ -60,11 +61,11 @@ class UserController extends Controller
                 ];
             })->toArray();
 
-            return Excel::download(new UserExport([$mappingUsers]), 'users.csv', \Maatwebsite\Excel\Excel::CSV, [
+            return FacadesExcel::download(new UserExport([$mappingUsers]), 'users.csv', Excel::CSV, [
                 'Content-Type' => 'text/csv',
             ]);
-        } catch (Throwable $th) {
-            throw $th;
+        } catch (Throwable $e) {
+            throw $e;
         }
     }
 
@@ -105,7 +106,7 @@ class UserController extends Controller
             return back()->withInput()->withErrors('create failed');
         }
 
-        return redirect()->route('user.search')->with('success', ConfigUtil::getMessage('ECL016'));
+        return redirect()->route('user.search')->with('success', ConfigUtil::getMessage('ICL096'));
     }
 
     /**
@@ -125,9 +126,8 @@ class UserController extends Controller
      */
     public function edit(string $id) {
         $loginUser = auth()->user();
-        $directorPosition = ValueUtil::constToValue('common.positions.VALID');
 
-        if ($loginUser->position_id !== 0 && strval($loginUser->id) !== $id) {
+        if ($loginUser->position_id !== ValueUtil::constToValue('common.positions.DIRECTOR') && strval($loginUser->id) !== $id) {
             Auth::logout();
             session()->invalidate();
             session()->regenerateToken();
@@ -176,7 +176,7 @@ class UserController extends Controller
             return back()->withInput()->withErrors('update failed');
         }
 
-        return redirect()->route('user.search')->with('success', ConfigUtil::getMessage('ECL016'));
+        return redirect()->route('user.search')->with('success', ConfigUtil::getMessage('ICL096'));
     }
 
     /**
@@ -191,7 +191,7 @@ class UserController extends Controller
 
         $response = [
             'status' => 200,
-            'message' => ConfigUtil::getMessage('ECL016'),
+            'message' => ConfigUtil::getMessage('ICL096'),
         ];
 
         if ($this->userRepository->deleteById($request->id, $loginUser->id)) {

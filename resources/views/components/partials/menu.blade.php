@@ -26,7 +26,7 @@ foreach ($menuHighlightConfig as $highlightName => $routes) {
             </li>
             <li>
                 @if (auth()->user()->position_id == 0)
-                <x-nav-link to="/" class="{{ $highlightCheck['group'] }}">
+                <x-nav-link to="{{ route('group.list') }}" class="{{ $highlightCheck['group'] }}">
                     <i class="fa fa-address-book-o"></i>
                     <p>Group List</p>
                 </x-nav-link>

@@ -1,14 +1,14 @@
 @props([
-    'label' => '', 
+    'label' => '',
     'name' => '',
     'idSelector' => '',
     'isDisabled' => false,
     'isHidden' => false,
     'accept' => '',
     // Set a file name to make it look like the file input is already selected & use it for front-end validation
-    'initFileName' => '', 
-    // to create error message 
-    'acceptLabel' => '',  
+    'initFileName' => '',
+    // to create error message
+    'acceptLabel' => '',
 ])
 
 @php
@@ -34,15 +34,15 @@
         'disabled' => $isDisabled,
         'accept' => $accept,
         'data-accept-label' => $acceptLabel,
-    ]) }} 
+    ]) }}
 
     {!! !empty($initFileName) ? "init-file-name=\"true\"" : '' !!}
 
     {{ $isHidden ? 'hidden' : '' }}
-    />  
+    />
 
     @if(!empty($initFileName))
-        <span class="init-file-name form-control"> 
+        <span class="init-file-name form-control">
             <span class="filename"> {{ $filename }} </span>
             <span class="extenstion"> {{ !empty($extension) ? '.' . $extension : '' }} </span>
         </span>

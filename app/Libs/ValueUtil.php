@@ -124,14 +124,4 @@ class ValueUtil
 
         return explode(',', $string);
     }
-
-    public static function formatString($valueList) {
-        $result = [];
-
-        foreach ($valueList as $item) {
-            $result[$item['id']] = $item['name'];
-        }
-
-        return $result;
-    }
 }
