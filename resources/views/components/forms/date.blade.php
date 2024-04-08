@@ -1,6 +1,6 @@
 @props([
-    'label' => '', 
-    'labelFurtureDate' => '', 
+    'label' => '',
+    'labelFurtureDate' => '',
     'name' => '',
     'value' => '',
     'id' => '',
@@ -13,9 +13,9 @@
 ])
 
 <div class="position-relative">
-    <input 
+    <input
         type="text"
-        placeholder="yyyy/mm/dd"
+        placeholder="{{ $placeholder }}"
         name="{{ $name }}"
         value="{{ $value }}"
         data-label="{{ $label }}"

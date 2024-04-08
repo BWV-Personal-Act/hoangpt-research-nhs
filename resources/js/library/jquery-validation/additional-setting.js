@@ -69,6 +69,9 @@ $.extend(jQuery.validator, {
                 $(p).data('label'),
             ]);
         },
+        greaterThanEqual: function (p, e) {
+            return $.validator.format('解約予定日は契約終了日前を指定してください。');
+        },
         fileRequired: function (p, e) {
             return $.validator.format('{0}は必須項目です。', [
                 $(e).data('label'),
@@ -115,7 +118,13 @@ $.extend(jQuery.validator, {
             return $.validator.format(
                 '{0}〜{1}の範囲で入力してください。', [min, max]
             );
-        }
+        },
+        checkCharacterlatin: function (p, e) {
+            return $.validator.format('{0}は半角英数で入力してください。', [$(e).data('label')]);
+        },
+        equalTo: function () {
+            return $.validator.format('確認用のパスワードが間違っています。');
+        },
     },
 });
 
@@ -438,7 +447,7 @@ $.validator.addMethod('greaterThanDate', function (value, element, params) {
                     $(params).next().remove();
                 }
             }
-            return new Date(value) <= new Date($(params).val());
+            return !moment(value).isBefore(params.val());;
         }
 
         return (

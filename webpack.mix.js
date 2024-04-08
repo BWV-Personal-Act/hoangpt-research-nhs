@@ -26,29 +26,12 @@ const fs = require('fs');
         out: 'js/screens/auth',
     },
     {
-        in: 'resources/js/screens/news',
-        out: 'js/screens/news',
-    },
-    {
-
-        in: 'resources/js/screens/customer',
-        out: 'js/screens/customer',
-    },
-    {
         in: 'resources/js/screens/user',
         out: 'js/screens/user',
     },
     {
-        in: 'resources/js/screens/item',
-        out: 'js/screens/item',
-    },
-    {
-        in: 'resources/js/screens/push',
-        out: 'js/screens/push',
-    },
-    {
-        in: 'resources/js/screens/priority',
-        out: 'js/screens/priority',
+        in: 'resources/js/screens/group',
+        out: 'js/screens/group',
     },
 ];
 
@@ -64,18 +47,6 @@ let cssDirs = [
     {
         in: 'resources/css/screens/auth',
         out: 'css/screens/auth',
-    },
-    {
-        in: 'resources/css/screens/item',
-        out: 'css/screens/item',
-    },
-    {
-        in: 'resources/css/screens/push',
-        out: 'css/screens/push',
-    },
-    {
-        in: 'resources/css/screens/priority',
-        out: 'css/screens/priority',
     },
 ];
 

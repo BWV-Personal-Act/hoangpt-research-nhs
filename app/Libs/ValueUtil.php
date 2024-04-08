@@ -110,31 +110,6 @@ class ValueUtil
     }
 
     /**
-     * Get season name by season_code
-     *
-     * @param string $seasonCode
-     * @param mixed $isIncludeSessionCode
-     * @return string
-     */
-    public static function getSeasonNameFromSeasonCode($seasonCode, $isIncludeSessionCode = false) {
-        $lstSeasonCode = getList('mst_item_detail.season_code');
-        $arrSeasonCode = str_split($seasonCode);
-        // renew array season_code with key start 1
-        $renewArrSeasonCode = array_combine(range(1, count($arrSeasonCode)), array_values($arrSeasonCode)) ?? [];
-        $keyLast = array_key_last($lstSeasonCode);
-        $isAllSeason = isset($renewArrSeasonCode[$keyLast]) && ($renewArrSeasonCode[$keyLast] == 1);
-        $seasonName = $isAllSeason
-            ? $lstSeasonCode[$keyLast]
-            : implode('/', array_filter($lstSeasonCode, function ($key) use ($renewArrSeasonCode) {
-                return isset($renewArrSeasonCode[$key]) && ($renewArrSeasonCode[$key]) == 1;
-            }, ARRAY_FILTER_USE_KEY));
-
-        return $isIncludeSessionCode
-                ? ($isAllSeason ? '00001' : substr($seasonCode, 0, 5)) . ' - ' . $seasonName
-                : $seasonName;
-    }
-
-    /**
      * Convert string to array
      *
      * @param string $string

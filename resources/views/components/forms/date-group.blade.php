@@ -1,5 +1,5 @@
 @props([
-    'label' => '', 
+    'label' => '',
     'name' => '',
     'value' => '',
     'id' => '',
@@ -17,7 +17,7 @@
         <x-forms.label :label="$label" name="{{ $label }}" isRequired="{{ $isRequired }}" class="{{ $attributes['classLabel'] }}" />
     @endif
 
-    <x-forms.date 
+    <x-forms.date
         label="{{ $label }}"
         labelFurtureDate="{{ $labelFurtureDate }}"
         name="{{ $name }}"
@@ -33,9 +33,9 @@
     />
 
     @if ($isHidden)
-        <input 
-            type="hidden" 
-            name="{{ $name }}" 
+        <input
+            type="hidden"
+            name="{{ $name }}"
             value="{{ $value }}"
         />
     @endif

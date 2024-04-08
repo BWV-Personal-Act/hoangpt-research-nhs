@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\{AuthController, CommonController, CustomerController, ItemController, NewsController, PriorityController, PushController, UserController};
-use Illuminate\Support\Facades\{App, Route};
+use App\Http\Controllers\{AuthController, CommonController, GroupController, UserController};
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,31 @@ use Illuminate\Support\Facades\{App, Route};
 |
 */
 
-Route::get('/', function () {
-    return view('test');
+Route::get('/auth/login', [AuthController::class, 'index'])->name('auth.login');
+Route::post('/auth/login', [AuthController::class, 'handleLogin'])->name('auth.handleLogin');
+
+Route::get('/auth/logout', [AuthController::class, 'handleLogout'])->name('auth.handleLogout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::prefix('user')->group(function () {
+        Route::get('/', [UserController::class, 'index'])->name('user.search');
+        Route::get('/export-csv', [UserController::class, 'exportCSV'])->name('user.exportCSV');
+
+        Route::get('/create', [UserController::class, 'create'])->name('user.create');
+        Route::post('/create', [UserController::class, 'store'])->name('user.store');
+
+        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::put('/edit/{id}', [UserController::class, 'update'])->name('user.update');
+
+        Route::post('/delete', [UserController::class, 'destroy'])->name('user.destroy');
+    });
+
+    Route::prefix('group')->group(function () {
+        Route::get('/list', [GroupController::class, 'index'])->name('group.list');
+        Route::post('/import-csv', [GroupController::class, 'handleImportCSV'])->name('group.importCSV');
+    });
+
+    Route::prefix('common')->as('common.')->group(function () {
+        Route::get('resetSearch', [CommonController::class, 'resetSearch'])->name('resetSearch');
+    });
 });

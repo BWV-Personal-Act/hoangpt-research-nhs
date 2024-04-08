@@ -2,10 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Libs\ValueUtil;
 use App\Models\Maintenance;
-use Exception;
-use Illuminate\Support\Facades\Log;
 
 class MaintenanceRepository extends BaseRepository
 {
@@ -21,29 +18,6 @@ class MaintenanceRepository extends BaseRepository
      * @return bool
      */
     public function updateMaintenance($mode, $body) {
-        try {
-            $data = [
-                'mode' => $mode,
-                'body' => $body,
-            ];
-            $maintenance = Maintenance::query()
-                ->where([
-                    ['del_flg', ValueUtil::constToValue('common.del_flg.VALID')],
-                ])
-                ->first();
-            if ($maintenance) {
-                $maintenance->fill($data);
-                $result = $maintenance->save();
-            } else {
-                $result = Maintenance::create($data);
-            }
-
-            return $result;
-        } catch (Exception $e) {
-            Log::error($e);
-
-            return false;
-        }
     }
 
     /**
@@ -52,11 +26,5 @@ class MaintenanceRepository extends BaseRepository
      * @return Maintenance
      */
     public function getMaintenance() {
-        $query = Maintenance::query()
-            ->where([
-                ['del_flg', ValueUtil::constToValue('common.del_flg.VALID')],
-            ]);
-
-        return $query->first();
     }
 }

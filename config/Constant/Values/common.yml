@@ -15,6 +15,12 @@ disable_flg:
   0: 有効|VALID
   1: 無効|INVALID
 
+positions:
+  0: Director|DIRECTOR
+  1: Group Leader|GROUP_LEADER
+  2: Leader|LEADER
+  3: Member|MEMBER
+
 # S3 upload directories
 s3_upload_dir:
   pdf_news: "pdf-news/"
@@ -25,7 +31,7 @@ s3_upload_dir:
 max_upload_file_size: 10
 
 # Pagination configs
-pagination_limit: 100
+pagination_limit: 10
 
 batch_page_size: 10000
 
